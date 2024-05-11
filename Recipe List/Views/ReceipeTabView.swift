@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct ReceipeTabView: View {
+    
     var body: some View {
         
         TabView {
             
-            Text("Featured View")
+            RecipeFeaturedView()
                 .tabItem {
                     VStack {
                         Image(systemName: "star.fill")
@@ -28,6 +29,7 @@ struct ReceipeTabView: View {
                     }
                 }
         }
+        .environmentObject(RecipeModel())
     }
 }
 

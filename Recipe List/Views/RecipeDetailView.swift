@@ -1,10 +1,3 @@
-//
-//  DetailView.swift
-//  Recipe List
-//
-//  Created by Donizetti de Souza on 5/10/24.
-//
-
 import SwiftUI
 
 struct RecipeDetailView: View {
