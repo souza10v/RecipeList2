@@ -8,17 +8,37 @@
 import SwiftUI
 
 struct RecipeListView: View {
+    
+    @ObservedObject var model = RecipeModel()
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        
+        NavigationView {
+            List(model.recipes) { r in
+                
+                NavigationLink {
+                    RecipeDetailView(recipe: r)
+                } label: {
+                    HStack(spacing: 20){
+                        Image(r.image)
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 50, height: 50, alignment: .center)
+                            .clipped()
+                            .cornerRadius(5)
+                        Text(r.name)
+                    }
+                }
+
+                
+            }
+            .navigationBarTitle("Todas as receitas")
         }
-        .padding()
     }
 }
 
 #Preview {
     RecipeListView()
 }
+
+
